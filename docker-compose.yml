@@ -1,0 +1,19 @@
+name: "rubedo"
+
+services:
+  database:
+    container_name: rubedo-database
+    image: postgres:17.5
+    ports:
+      - 5434:5432
+    volumes:
+      - ./.docker/data/postgres:/var/lib/postgresql/data
+      - ./config/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - default
+
+networks:
+  default:

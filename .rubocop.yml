@@ -1,0 +1,14 @@
+plugins:
+  - rubocop-factory_bot
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-rspec_rails
+  - rubocop-thread_safety
+
+AllCops:
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
