@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'bundler/setup'
+
+# explicit haml-lint config increases performance slightly while avoiding config confusion.
+ARGV.unshift('--config', File.expand_path('../.haml-lint.yml', __dir__))
+
+load Gem.bin_path('haml_lint', 'haml-lint')
