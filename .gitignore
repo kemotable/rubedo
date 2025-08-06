@@ -50,3 +50,6 @@
 
 # Ignore local docker sources
 .docker/data/
+
+# OS X
+.DS_Store
