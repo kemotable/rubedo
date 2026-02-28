@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+
+development:
+  <<: *default
+  database: rubedo_development
+  username: rubedo
+  password: <%= Rails.application.credentials.dig(:db, :password) %>
+  host: localhost
+
+test:
+  <<: *default
+  database: rubedo_test
+  username: rubedo
+  password: <%= Rails.application.credentials.dig(:db, :password) %>
+  host: localhost
+
+production:
+  <<: *default
+  database: rubedo_production
+  username: rubedo
+  password: <%= Rails.application.credentials.dig(:db, :password) %>
+  host: localhost

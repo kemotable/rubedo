@@ -67,3 +67,19 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 /public/uploads
+
+# Ignore key files for decrypting credentials and more.
+/config/*.key
+/config/credentials/*.key
+
+# Editor/IDE
+.ruby-lsp/
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Ruby REPL history
+.pry_history
+.irb_history
