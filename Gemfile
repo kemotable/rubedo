@@ -9,6 +9,7 @@ gem "puma", "~> 7.2"
 
 gem "bootsnap", require: false
 gem "cssbundling-rails"
+gem "haml-rails"
 gem "jsbundling-rails"
 gem "propshaft"
 gem "stimulus-rails"
@@ -23,6 +24,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "haml_lint", require: false
   gem "pry"
   gem "pry-rails"
   gem "web-console"
