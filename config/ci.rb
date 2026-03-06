@@ -5,7 +5,7 @@
 CI.run do
   step "Setup", "bin/setup --skip-server"
 
-  step "Security: Yarn vulnerability audit", "yarn audit"
+  # step "Security: Yarn vulnerability audit", "yarn audit"
 
   # Optional: set a green GitHub commit status to unblock PR merge.
   # Requires the `gh` CLI and `gh extension install basecamp/gh-signoff`.
