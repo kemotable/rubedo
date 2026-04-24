@@ -44,6 +44,10 @@ module Rubedo
     config.time_zone = "UTC"
     config.active_record.default_timezone = :utc
 
+    # Keep Polish as the default UI language while retaining English as a supported locale.
+    config.i18n.default_locale = :pl
+    config.i18n.available_locales = %i[pl en]
+
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
