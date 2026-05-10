@@ -48,9 +48,8 @@ issues.
 
 ## Releases
 
-See ADR-0004 (currently Draft) for the release strategy. In short: SemVer
-starting at `v0.1.0`, releases cut via GitHub UI, production deploys tied
-to versioned releases.
+Release conventions are not finalised yet.
+To be defined once ADR-0004 moves beyond Draft.
 
 ## Decisions that change these conventions
 

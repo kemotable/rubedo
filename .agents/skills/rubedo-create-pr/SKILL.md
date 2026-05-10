@@ -10,8 +10,10 @@ Read `docs/conventions/workflow.md` from the repository root. Focus on the `## P
 
 ## Step 2 — Determine current branch and issue number
 Run `git branch --show-current` in the repository root.
-Extract the issue number from the branch name — expected format: `{issue-number}-{description}` (e.g. `12-add-transaction-model` → issue #12).
-If the issue number cannot be determined unambiguously, ask the user.
+If the branch name starts with an issue number followed by `-`, extract it
+(e.g. `12-add-transaction-model` → issue #12).
+If the issue number cannot be determined unambiguously from the branch name,
+ask the user instead of guessing.
 
 ## Step 3 — Fetch issue title
 Use `mcp__github__get_issue` to fetch the title of the linked issue. Use it as the PR title.
