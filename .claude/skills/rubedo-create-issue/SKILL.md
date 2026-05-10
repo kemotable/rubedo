@@ -29,7 +29,19 @@ Ask for any information missing to fill the template:
 - For Task: Description, Acceptance Criteria, QA Notes
 - For Spike: Hypothesis / Question, Approach, Definition of Done
 
-Propose sensible defaults where possible. Ask one question at a time.
+Propose sensible defaults where possible. Ask one question at a time only
+until you have enough context to draft the whole issue.
+
+Once you have enough context, stop asking section-by-section approval
+questions and generate the complete issue proposal in one response:
+
+- issue type
+- title
+- label
+- assignee
+- full issue body
+
+Ask the user to approve or correct the complete proposal.
 
 ## Step 6 — Create the issue
 Use `mcp__github__create_issue` with:
@@ -40,4 +52,4 @@ Use `mcp__github__create_issue` with:
 - `assignees`: ["kemotable"]
 - `labels`: confirmed task label for Task, `spike` for Spike
 
-Confirm the full issue body with the user before submitting.
+Confirm the complete issue proposal with the user before submitting.

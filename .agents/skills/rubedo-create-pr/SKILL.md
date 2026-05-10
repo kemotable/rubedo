@@ -24,7 +24,24 @@ Ask the user for:
 - Scope: what is included, what was explicitly left out (if non-obvious)
 - Confirmation that QA Notes from the issue have been verified
 
-Propose sensible defaults where possible. Ask one question at a time.
+Propose sensible defaults where possible. Ask one question at a time only
+until you have enough context to draft the whole PR.
+
+Once you have enough context, stop asking section-by-section approval
+questions and generate the complete PR proposal in one response:
+
+- title
+- base branch
+- head branch
+- full PR body
+
+Format `Summary` and `Scope` for readability:
+
+- Use bullet lists when there is more than one distinct point
+- Prefer 2-5 short bullets over one long paragraph
+- Use a short paragraph only when the content is genuinely one point
+
+Ask the user to approve or correct the complete proposal.
 
 ## Step 5 — Create the PR
 Use `mcp__github__create_pull_request` with:
@@ -35,4 +52,4 @@ Use `mcp__github__create_pull_request` with:
 - `base`: "main"
 - `body`: filled template in English — first line must be `Closes #{issue_number}`, then Summary, Scope, Verification
 
-Confirm the full PR body with the user before submitting.
+Confirm the complete PR proposal with the user before submitting.
