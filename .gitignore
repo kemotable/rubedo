@@ -44,6 +44,10 @@ config/master.key
 .vscode/
 .idea/
 
+# Claude Code
+.claude/settings.local.json
+.claude/worktrees/
+
 # macOS
 .DS_Store
 
