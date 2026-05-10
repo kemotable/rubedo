@@ -15,20 +15,41 @@ Ask the user: "Task or Spike?" — nothing else.
 Propose a title following the conventions from `workflow.md` (`## Issues`).
 Ask for confirmation or correction.
 
-## Step 4 — Collect remaining details
+## Step 4 — Suggest the issue label
+If the issue type is `Task`, suggest the most appropriate single label from:
+`feature`, `bug`, `chore`, `infra`, `docs`.
+
+Base the suggestion on the issue context gathered from the user so far.
+Ask the user to confirm or correct the suggested label before continuing.
+
+If the issue type is `Spike`, use the label `spike` and do not ask for a label.
+
+## Step 5 — Collect remaining details
 Ask for any information missing to fill the template:
 - For Task: Description, Acceptance Criteria, QA Notes
 - For Spike: Hypothesis / Question, Approach, Definition of Done
 
-Propose sensible defaults where possible. Ask one question at a time.
+Propose sensible defaults where possible. Ask one question at a time only
+until you have enough context to draft the whole issue.
 
-## Step 5 — Create the issue
+Once you have enough context, stop asking section-by-section approval
+questions and generate the complete issue proposal in one response:
+
+- issue type
+- title
+- label
+- assignee
+- full issue body
+
+Ask the user to approve or correct the complete proposal.
+
+## Step 6 — Create the issue
 Use `mcp__github__create_issue` with:
 - `owner`: read from git remote
 - `repo`: read from git remote
 - `title`: confirmed title from Step 3
 - `body`: filled template in English (structure from workflow.md)
 - `assignees`: ["kemotable"]
-- `labels`: ["feature"] for Task, ["spike"] for Spike
+- `labels`: confirmed task label for Task, `spike` for Spike
 
-Confirm the full issue body with the user before submitting.
+Confirm the complete issue proposal with the user before submitting.

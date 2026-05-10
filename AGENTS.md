@@ -44,3 +44,11 @@ the project reaches the relevant milestones; they don't exist yet by design.
   propose an addition to the relevant `docs/conventions/*.md`.
 - A throwaway thought worth keeping → I'll add it to `docs/inbox.md` myself;
   don't act on it.
+
+## Agent skills
+
+Repo-specific guidance for agents lives in `docs/agents/`.
+
+- Issue tracker workflow: see `docs/agents/issue-tracker.md`
+- Domain docs: see `docs/agents/domain.md`
+- Dual-agent entry points: see `docs/agents/agent-files.md`
