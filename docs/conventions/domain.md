@@ -40,3 +40,15 @@ them produces silent domain bugs, not style noise.
 
 This section will grow as domain decisions are made. The first real domain
 decisions land at M6. Until then, this section may stay short.
+
+Current budgeting vocabulary checkpoint:
+
+- `Budget` is the top-level budgeting container.
+- `BudgetMember` is the domain actor participating in a `Budget`.
+- `BudgetCategory` is an explicit category entity belonging to a `Budget`.
+- `BudgetEntry` is the canonical identity of a budget item.
+- `BudgetEntryOccurrence` is the atomic occurrence of a `BudgetEntry` inside a
+  `BudgetPeriod`.
+- `BudgetPeriod` is the budgeting period aggregate.
+- `BudgetTemplate` is the per-budget template used to open a new
+  `BudgetPeriod`.
