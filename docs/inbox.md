@@ -11,8 +11,9 @@ Raw idea capture. Low-friction, chronological, deliberately unstructured.
   1. **Delete** — stale, wrong, or already done.
   2. **Promote to GitHub Issue** — concrete task to do.
   3. **Promote to ADR (Draft)** — surface a decision in the making.
-  4. **Promote to a convention** — recognise it as a rule that applies
-     repeatedly.
+  4. **Promote to a convention** — recognise it as a rule that applies repeatedly.
+  5. **Promote to discovery session** — idea is too fuzzy for an Issue but worth
+     shaping; see `docs/agents/product-discovery.md`.
 - AI agents: do **not** act on entries here unless explicitly asked.
 
 ## Entries

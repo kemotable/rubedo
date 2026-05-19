@@ -67,7 +67,7 @@ Confirm the repo's current rule:
 Show the user a draft of:
 
 - The `## Agent skills` block to add to the repo entrypoint file or files
-- The contents of `docs/agents/issue-tracker.md`, `docs/agents/domain.md`, `docs/agents/agent-files.md`
+- The contents of `docs/agents/issue-tracker.md`, `docs/agents/reading-order.md`, `docs/agents/agent-files.md`
 
 Let them edit before writing.
 
@@ -92,7 +92,7 @@ The block:
 Repo-specific agent guidance lives in `docs/agents/`.
 
 - Issue tracker workflow: see `docs/agents/issue-tracker.md`
-- Domain-document entrypoints: see `docs/agents/domain.md`
+- Reading order: see `docs/agents/reading-order.md`
 - Agent-file handling: see `docs/agents/agent-files.md`
 ```
 
