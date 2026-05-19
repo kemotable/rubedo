@@ -43,13 +43,22 @@ questions and generate the complete issue proposal in one response:
 
 Ask the user to approve or correct the complete proposal.
 
-## Step 6 — Create the issue
-Use `mcp__github__create_issue` with:
-- `owner`: read from git remote
-- `repo`: read from git remote
-- `title`: confirmed title from Step 3
-- `body`: filled template in English (structure from workflow.md)
-- `assignees`: ["kemotable"]
-- `labels`: confirmed task label for Task, `spike` for Spike
+## Formatting rule
+Write prose as single continuous lines — no manual line breaks within paragraphs
+or list items. GitHub handles word wrapping. Use blank lines to separate paragraphs.
 
-Confirm the complete issue proposal with the user before submitting.
+## Step 6 — Create the issue
+Run:
+
+```bash
+gh issue create \
+  --title "TITLE" \
+  --body "BODY" \
+  --assignee kemotable \
+  --label LABEL
+```
+
+Replace `TITLE`, `BODY`, and `LABEL` with the confirmed values.
+`BODY` must use the filled template in English (structure from workflow.md).
+
+Confirm the complete issue proposal with the user before running the command.

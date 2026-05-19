@@ -51,6 +51,12 @@ issues.
 Release conventions are not finalised yet.
 To be defined once ADR-0004 moves beyond Draft.
 
+## Tooling
+
+`gh` (GitHub CLI) is the standard tool for all GitHub operations — creating
+issues, fetching issue details, opening pull requests. No GitHub MCP tools are
+used.
+
 ## Decisions that change these conventions
 
 Changes to this document also go through a PR. Significant changes — anything
