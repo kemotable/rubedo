@@ -50,5 +50,6 @@ the project reaches the relevant milestones; they don't exist yet by design.
 Repo-specific guidance for agents lives in `docs/agents/`.
 
 - Issue tracker workflow: see `docs/agents/issue-tracker.md`
-- Domain docs: see `docs/agents/domain.md`
+- Reading order: see `docs/agents/reading-order.md`
 - Dual-agent entry points: see `docs/agents/agent-files.md`
+- Product discovery: see `docs/agents/product-discovery.md`
