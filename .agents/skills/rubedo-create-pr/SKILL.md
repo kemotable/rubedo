@@ -16,7 +16,13 @@ If the issue number cannot be determined unambiguously from the branch name,
 ask the user instead of guessing.
 
 ## Step 3 — Fetch issue title
-Use `mcp__github__get_issue` to fetch the title of the linked issue. Use it as the PR title.
+Run:
+
+```bash
+gh issue view ISSUE_NUMBER --json title --jq '.title'
+```
+
+Use the returned title as the PR title.
 
 ## Step 4 — Collect PR body details
 Ask the user for:
@@ -43,13 +49,34 @@ Format `Summary` and `Scope` for readability:
 
 Ask the user to approve or correct the complete proposal.
 
-## Step 5 — Create the PR
-Use `mcp__github__create_pull_request` with:
-- `owner`: read from git remote
-- `repo`: read from git remote
-- `title`: issue title from Step 3
-- `head`: current branch from Step 2
-- `base`: "main"
-- `body`: filled template in English — first line must be `Closes #{issue_number}`, then Summary, Scope, Verification
+## Formatting rule
+Write prose as single continuous lines — no manual line breaks within paragraphs
+or list items. GitHub handles word wrapping. Use blank lines to separate paragraphs.
 
-Confirm the complete PR proposal with the user before submitting.
+## Step 5 — Create the PR
+Run:
+
+```bash
+gh pr create \
+  --title "TITLE" \
+  --base main \
+  --head BRANCH \
+  --body "$(cat <<'EOF'
+Closes #ISSUE_NUMBER
+
+## Summary
+SUMMARY
+
+## Scope
+SCOPE
+
+## Verification
+VERIFICATION
+EOF
+)"
+```
+
+Replace `TITLE`, `BRANCH`, `ISSUE_NUMBER`, `SUMMARY`, `SCOPE`, and `VERIFICATION`
+with the confirmed values.
+
+Confirm the complete PR proposal with the user before running the command.
