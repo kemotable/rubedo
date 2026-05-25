@@ -19,3 +19,4 @@ Raw idea capture. Low-friction, chronological, deliberately unstructured.
 ## Entries
 
 - [2026-05-09] Revisit conventions split: domain vs infra. `domain.md` currently mixes Money (domain) with Time/Locale (infra). Worth splitting once there is enough content to justify the boundary.
+- [2026-05-25] Infra roadmap from closed Issue #3 (CI/GitHub Actions, Kamal, Cloudflare DNS, Zero Trust for staging, secrets management, backup strategy, health checks, rollback strategy, release automation, server hardening) — extract into dedicated issues when M2/M4 scope is being defined. Details in closed Issue #3.
