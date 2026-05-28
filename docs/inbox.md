@@ -20,3 +20,4 @@ Raw idea capture. Low-friction, chronological, deliberately unstructured.
 
 - [2026-05-09] Revisit conventions split: domain vs infra. `domain.md` currently mixes Money (domain) with Time/Locale (infra). Worth splitting once there is enough content to justify the boundary.
 - [2026-05-25] Infra roadmap from closed Issue #3 (CI/GitHub Actions, Kamal, Cloudflare DNS, Zero Trust for staging, secrets management, backup strategy, health checks, rollback strategy, release automation, server hardening) — extract into dedicated issues when M2/M4 scope is being defined. Details in closed Issue #3.
+- [2026-05-25] Sentry sourcemap upload via sentry-cli — supported on free tier, ~15 min setup, but requires a stable deployment pipeline with release versioning. Revisit when setting up deployment (M2/M3).
