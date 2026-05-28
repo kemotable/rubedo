@@ -9,6 +9,7 @@
     "@hotwired/turbo-rails": "^8.0.23"
   },
   "scripts": {
-    "build": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
+    "build": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --define:process.env.NODE_ENV='\"production\"'",
+    "dev": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --define:process.env.NODE_ENV='\"development\"' --watch"
   }
 }
