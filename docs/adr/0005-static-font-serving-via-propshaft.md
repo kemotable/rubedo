@@ -10,7 +10,7 @@ The project uses Propshaft as the asset pipeline and `@tailwindcss/cli` + `cssbu
 
 ## Decision
 
-Copy WOFF2 files from the npm source package into `app/assets/fonts/`. Declare `@font-face` rules manually in `application.css` using Propshaft-native URL format (no `/assets/` prefix — Propshaft rewrites to digested path at serve time). Keep the source npm package as a `devDependency` to track provenance and simplify future updates.
+Copy WOFF2 files from the npm source package into `app/assets/fonts/`. Declare `@font-face` rules manually in `app/assets/stylesheets/application.tailwind.css` using Propshaft-native URL format (no `/assets/` prefix — Propshaft rewrites to digested path at serve time). Keep the source npm package as a `devDependency` to track provenance and simplify future updates.
 
 ## Alternatives considered
 
