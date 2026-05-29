@@ -2,6 +2,9 @@
   "private": true,
   "packageManager": "yarn@4.14.1",
   "devDependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "@tailwindcss/cli": "^4.3.0",
+    "daisyui": "^5.5.20",
     "esbuild": "^0.28.0"
   },
   "dependencies": {
@@ -10,6 +13,8 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --define:process.env.NODE_ENV='\"production\"'",
-    "dev": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --define:process.env.NODE_ENV='\"development\"' --watch"
+    "dev": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --define:process.env.NODE_ENV='\"development\"' --watch",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.css -o ./app/assets/builds/application.css --minify",
+    "dev:css": "tailwindcss -i ./app/assets/stylesheets/application.css -o ./app/assets/builds/application.css --watch"
   }
 }

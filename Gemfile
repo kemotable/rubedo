@@ -14,6 +14,7 @@ gem "jsbundling-rails"
 gem "propshaft"
 gem "stimulus-rails"
 gem "turbo-rails"
+gem "view_component"
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
