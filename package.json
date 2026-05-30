@@ -1,11 +1,17 @@
 {
   "private": true,
+  "type": "module",
   "packageManager": "yarn@4.14.1",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@fontsource-variable/inter": "^5.2.8",
     "@tailwindcss/cli": "^4.3.0",
     "daisyui": "^5.5.20",
-    "esbuild": "^0.28.0"
+    "esbuild": "^0.28.0",
+    "eslint": "^10.4.1",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.6.0",
+    "prettier": "^3.8.3"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
@@ -15,6 +21,9 @@
     "build": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --define:process.env.NODE_ENV='\"production\"'",
     "dev": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --define:process.env.NODE_ENV='\"development\"' --watch",
     "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify",
-    "dev:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --watch"
+    "dev:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --watch",
+    "lint:js": "eslint app/javascript/",
+    "lint:js:fix": "eslint app/javascript/ --fix",
+    "format:js": "prettier --write app/javascript/"
   }
 }
