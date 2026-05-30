@@ -1,6 +1,6 @@
-import { Application } from "@hotwired/stimulus"
+import { Application } from "@hotwired/stimulus";
 
-const application = Application.start()
-application.debug = process.env.NODE_ENV === "development"
+const application = Application.start();
+application.debug = process.env.NODE_ENV === "development";
 
-export { application }
+export { application };
