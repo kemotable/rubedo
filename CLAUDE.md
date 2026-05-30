@@ -10,6 +10,11 @@ portfolio-grade exercise in domain modelling and pragmatic event-driven
 architecture. Trade-offs are made explicit in ADRs, not hidden. Features and
 infrastructure are added when a real need appears, not preventively.
 
+Exception: this principle assumes the cost of deciding later is low. It does
+not apply when a decision becomes progressively harder to reverse as the
+project grows. Before deferring such a decision, ask: *"will this be harder to
+reverse in 6 months?"* If yes, decide now.
+
 ## Non-goals
 
 - Not a SaaS, not a multi-tenant product.
