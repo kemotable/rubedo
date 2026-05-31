@@ -27,6 +27,7 @@ module Rubedo
 
     config.generators do |g|
       g.template_engine :haml
+      g.orm :active_record, primary_key_type: :uuid
     end
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
