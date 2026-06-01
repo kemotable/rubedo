@@ -14,7 +14,7 @@ Automation) with low operational overhead.
 ## Decision
 
 Build Rubedo as a **modular monolith**: one Rails application, one deployable
-unit, one database. Internal modularity is enforced through namespacing,
+unit, one PostgreSQL database. Internal modularity is enforced through namespacing,
 explicit module boundaries, and conscious dependency direction — not through
 service or process separation.
 
@@ -40,3 +40,4 @@ service or process separation.
 ## References
 
 - `CLAUDE.md` — project character.
+- ADR-0003 — UUID v7 primary keys; defines PostgreSQL 18 as the required engine version.
