@@ -39,6 +39,10 @@ node_modules/
 /config/credentials/*.key
 config/master.key
 
+# Version managers
+.ruby-version
+.node-version
+
 # IDE / editors
 .ruby-lsp/
 .vscode/
