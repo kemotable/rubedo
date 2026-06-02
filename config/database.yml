@@ -6,20 +6,20 @@ default: &default
 development:
   <<: *default
   database: rubedo_development
-  username: rubedo
-  password: <%= Rails.application.credentials.dig(:db, :password) %>
-  host: localhost
+  username: <%= ENV.fetch("DB_USERNAME", "rubedo") %>
+  password: <%= ENV.fetch("DB_PASSWORD", "rubedo") %>
+  host: <%= ENV.fetch("DB_HOST", "localhost") %>
 
 test:
   <<: *default
   database: rubedo_test
-  username: rubedo
-  password: <%= Rails.application.credentials.dig(:db, :password) %>
-  host: localhost
+  username: <%= ENV.fetch("DB_USERNAME", "rubedo") %>
+  password: <%= ENV.fetch("DB_PASSWORD", "rubedo") %>
+  host: <%= ENV.fetch("DB_HOST", "localhost") %>
 
 production:
   <<: *default
   database: rubedo_production
-  username: rubedo
+  username: <%= Rails.application.credentials.dig(:db, :username) %>
   password: <%= Rails.application.credentials.dig(:db, :password) %>
-  host: localhost
+  host: <%= Rails.application.credentials.dig(:db, :host) %>
