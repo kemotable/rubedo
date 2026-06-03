@@ -12,8 +12,8 @@ infrastructure are added when a real need appears, not preventively.
 
 Exception: this principle assumes the cost of deciding later is low. It does
 not apply when a decision becomes progressively harder to reverse as the
-project grows. Before deferring such a decision, ask: *"will this be harder to
-reverse in 6 months?"* If yes, decide now.
+project grows. Before deferring such a decision, ask: _"will this be harder to
+reverse in 6 months?"_ If yes, decide now.
 
 ## Non-goals
 

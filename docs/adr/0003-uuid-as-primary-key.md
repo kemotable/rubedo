@@ -48,13 +48,13 @@ UUID v4 is fully random. In PostgreSQL's B-tree index, each insert lands at a
 random position, causing frequent page splits, index fragmentation, and poor
 cache locality. Measured at 1M rows on PostgreSQL 18:
 
-| Metric | UUID v4 | UUID v7 |
-|---|---|---|
-| Leaf page fragmentation | 49.99% | 0% |
-| Average page fill | 71% | ~90% |
-| Contiguous leaf page links | 0 / 4 861 | 3 812 / 3 832 |
-| Index size | ~40 MB | ~31.6 MB (−26%) |
-| `ORDER BY id` scan (1M rows) | 318 ms | 113 ms |
+| Metric                       | UUID v4   | UUID v7         |
+| ---------------------------- | --------- | --------------- |
+| Leaf page fragmentation      | 49.99%    | 0%              |
+| Average page fill            | 71%       | ~90%            |
+| Contiguous leaf page links   | 0 / 4 861 | 3 812 / 3 832   |
+| Index size                   | ~40 MB    | ~31.6 MB (−26%) |
+| `ORDER BY id` scan (1M rows) | 318 ms    | 113 ms          |
 
 UUID v7 is time-ordered (48-bit Unix timestamp prefix). Inserts land
 sequentially at the end of the B-tree — the same pattern as `bigint SERIAL`.

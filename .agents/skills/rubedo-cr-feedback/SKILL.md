@@ -71,6 +71,7 @@ Present comments one at a time in the order they appear. For each comment, show:
 - **Suggested change:** if the body contains a ` ```suggestion ` block, highlight it clearly as a diff the reviewer proposes to apply
 
 Then provide your analysis:
+
 - Is the suggestion technically correct?
 - Is there a reason to reject it (e.g. false positive, conflicts with an architectural decision, already handled elsewhere)?
 - What is the recommended course of action?
@@ -78,6 +79,7 @@ Then provide your analysis:
 Wait for the user's decision. Do **not** move to the next comment until the user explicitly approves.
 
 The user may decide to:
+
 - **Accept** — note it and ask whether to implement the change now or defer to a later commit
 - **Reject** — proceed to Step 5 to draft a reply
 - **Discuss** — continue the conversation about this comment before deciding
@@ -85,6 +87,7 @@ The user may decide to:
 ## Step 5 — Draft reply for rejected comments
 
 When the user rejects a comment, draft a concise reply explaining the reasoning. The reply must:
+
 - Acknowledge the reviewer's concern
 - State clearly why the suggestion is not being applied
 - Reference an ADR, issue, or prior decision if relevant
@@ -106,8 +109,8 @@ Replace `OWNER`, `REPO`, `PR_NUMBER`, `REPLY_TEXT`, and `COMMENT_DATABASE_ID` wi
 
 After all unresolved comments have been processed, print a summary table:
 
-| # | File | Decision | Note |
-|---|------|----------|------|
-| 1 | path:line | Accepted / Rejected / Deferred | brief note |
+| #   | File      | Decision                       | Note       |
+| --- | --------- | ------------------------------ | ---------- |
+| 1   | path:line | Accepted / Rejected / Deferred | brief note |
 
 This gives a clear record of what was decided and why before any commit or push.

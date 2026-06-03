@@ -6,6 +6,7 @@ description: Read a GitHub Issue in the Rubedo project. Use when user wants to v
 You are reading a GitHub Issue for the Rubedo project. Follow these steps precisely.
 
 ## Step 1 — Determine issue number
+
 If the user provided an issue number explicitly, use it.
 
 Otherwise, derive it from the current branch name:
@@ -18,6 +19,7 @@ Branch names follow the pattern `{number}-{slug}`, e.g. `20-switch-pr-and-issue-
 Extract the leading number. If no number can be determined, ask the user.
 
 ## Step 2 — Fetch the issue
+
 Run:
 
 ```bash

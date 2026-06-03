@@ -8,7 +8,7 @@
 # For a containerized dev environment, see Dev Containers: https://guides.rubyonrails.org/getting_started_with_devcontainer.html
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version
-ARG RUBY_VERSION=3.4.8
+ARG RUBY_VERSION=3.4.9
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
 # Rails app lives here
@@ -17,8 +17,8 @@ WORKDIR /rails
 # Install base packages
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y curl libjemalloc2 postgresql-client && \
-    ln -s /usr/lib/$(uname -m)-linux-gnu/libjemalloc.so.2 /usr/local/lib/libjemalloc.so && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+    ln -s "/usr/lib/$(uname -m)-linux-gnu/libjemalloc.so.2" /usr/local/lib/libjemalloc.so && \
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 # Set production environment variables and enable jemalloc for reduced memory usage and latency.
 ENV RAILS_ENV="production" \
@@ -30,19 +30,30 @@ ENV RAILS_ENV="production" \
 # Throw-away build stage to reduce size of final image
 FROM base AS build
 
+# Use bash with pipefail so piped commands fail the build on any error
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Install packages needed to build gems and node modules
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libpq-dev libyaml-dev node-gyp pkg-config python-is-python3 && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+    apt-get install --no-install-recommends -y \
+            build-essential \
+            git \
+            libpq-dev \
+            libyaml-dev \
+            node-gyp \
+            pkg-config \
+            python-is-python3 && \
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 # Install JavaScript dependencies
-ARG NODE_VERSION=24.13.1
+ARG NODE_VERSION=24.16.0
 ARG YARN_VERSION=latest
 ENV PATH=/usr/local/node/bin:$PATH
 RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
     /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
-    rm -rf /tmp/node-build-master
-RUN corepack enable && yarn set version $YARN_VERSION
+    rm -rf /tmp/node-build-master && \
+    corepack enable && \
+    yarn set version "$YARN_VERSION"
 
 # Install application gems
 COPY vendor/* ./vendor/
@@ -60,16 +71,12 @@ RUN yarn install --immutable
 # Copy application code
 COPY . .
 
-# Precompile bootsnap code for faster boot times.
+# Precompile bootsnap code (faster boot), precompile assets without requiring
+# the secret RAILS_MASTER_KEY, then drop node_modules.
 # -j 1 disable parallel compilation to avoid a QEMU bug: https://github.com/rails/bootsnap/issues/495
-RUN bundle exec bootsnap precompile -j 1 app/ lib/
-
-# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
-
-
-RUN rm -rf node_modules
-
+RUN bundle exec bootsnap precompile -j 1 app/ lib/ && \
+    SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile && \
+    rm -rf node_modules
 
 # Final stage for app image
 FROM base
