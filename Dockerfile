@@ -46,7 +46,7 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 # Install JavaScript dependencies
-ARG NODE_VERSION=24.13.1
+ARG NODE_VERSION=24.16.0
 ARG YARN_VERSION=latest
 ENV PATH=/usr/local/node/bin:$PATH
 RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
