@@ -22,16 +22,16 @@ Include this section only when the session enters `domain shaping`.
 
 ### Core entities
 
-| Entity | Responsibility |
-| --- | --- |
+| Entity   | Responsibility |
+| -------- | -------------- |
 | `Entity` | Responsibility |
 
 ## Story map
 
-| Activity | Candidate steps |
-| --- | --- |
-| Activity 1 | Step A, Step B |
-| Activity 2 | Step C, Step D |
+| Activity   | Candidate steps |
+| ---------- | --------------- |
+| Activity 1 | Step A, Step B  |
+| Activity 2 | Step C, Step D  |
 
 ## Candidate slices
 

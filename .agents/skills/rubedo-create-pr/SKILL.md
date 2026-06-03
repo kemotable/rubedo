@@ -6,9 +6,11 @@ description: Create a GitHub Pull Request in the Rubedo project. Use when user w
 You are creating a GitHub Pull Request for the Rubedo project. Follow these steps precisely.
 
 ## Step 1 — Read conventions
+
 Read `docs/conventions/workflow.md` from the repository root. Focus on the `## Pull requests` section.
 
 ## Step 2 — Determine current branch and issue number
+
 Run `git branch --show-current` in the repository root.
 If the branch name starts with an issue number followed by `-`, extract it
 (e.g. `12-add-transaction-model` → issue #12).
@@ -16,6 +18,7 @@ If the issue number cannot be determined unambiguously from the branch name,
 ask the user instead of guessing.
 
 ## Step 3 — Fetch issue title
+
 Run:
 
 ```bash
@@ -25,7 +28,9 @@ gh issue view ISSUE_NUMBER --json title --jq '.title'
 Use the returned title as the PR title.
 
 ## Step 4 — Collect PR body details
+
 Ask the user for:
+
 - Summary: what was implemented and why
 - Scope: what is included, what was explicitly left out (if non-obvious)
 - Confirmation that QA Notes from the issue have been verified
@@ -50,10 +55,12 @@ Format `Summary` and `Scope` for readability:
 Ask the user to approve or correct the complete proposal.
 
 ## Formatting rule
+
 Write prose as single continuous lines — no manual line breaks within paragraphs
 or list items. GitHub handles word wrapping. Use blank lines to separate paragraphs.
 
 ## Step 5 — Create the PR
+
 Run:
 
 ```bash

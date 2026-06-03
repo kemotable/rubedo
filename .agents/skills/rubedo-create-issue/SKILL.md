@@ -6,16 +6,20 @@ description: Create a GitHub Issue in the Rubedo project. Use when user wants to
 You are creating a GitHub Issue for the Rubedo project. Follow these steps precisely.
 
 ## Step 1 — Read conventions
+
 Read `docs/conventions/workflow.md` from the repository root. Focus on the `## Issues` section.
 
 ## Step 2 — Determine issue type
+
 Ask the user: "Task or Spike?" — nothing else.
 
 ## Step 3 — Propose a title
+
 Propose a title following the conventions from `workflow.md` (`## Issues`).
 Ask for confirmation or correction.
 
 ## Step 4 — Suggest the issue label
+
 If the issue type is `Task`, suggest the most appropriate single label from:
 `feature`, `bug`, `chore`, `infra`, `docs`.
 
@@ -25,7 +29,9 @@ Ask the user to confirm or correct the suggested label before continuing.
 If the issue type is `Spike`, use the label `spike` and do not ask for a label.
 
 ## Step 5 — Collect remaining details
+
 Ask for any information missing to fill the template:
+
 - For Task: Description, Acceptance Criteria, QA Notes
 - For Spike: Hypothesis / Question, Approach, Definition of Done
 
@@ -44,10 +50,12 @@ questions and generate the complete issue proposal in one response:
 Ask the user to approve or correct the complete proposal.
 
 ## Formatting rule
+
 Write prose as single continuous lines — no manual line breaks within paragraphs
 or list items. GitHub handles word wrapping. Use blank lines to separate paragraphs.
 
 ## Step 6 — Create the issue
+
 Run:
 
 ```bash

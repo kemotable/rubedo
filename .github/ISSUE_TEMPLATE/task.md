@@ -6,10 +6,13 @@ assignees: kemotable
 ---
 
 ## Description
+
 [What and why]
 
 ## Acceptance Criteria
+
 - [ ] ...
 
 ## QA Notes
+
 [How to verify this is done]
