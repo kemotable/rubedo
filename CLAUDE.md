@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Entry point for AI agents and future-self working in this repository.
+Entry point for Claude Code and future-self working in this repository.
 
 ## Project character
 
@@ -27,9 +27,11 @@ reverse in 6 months?"_ If yes, decide now.
   working in. Each ADR has a `Status` field (Draft / Proposed / Accepted /
   Superseded / Deferred).
 - `docs/conventions/` — rules that apply at every step of work.
-  - `domain.md` — how the domain is modelled (money, time, locale, naming).
-  - `code.md` — Ruby/Rails patterns, structure, testing.
-  - `workflow.md` — Git, PR, branch, release.
+  - @docs/conventions/domain.md — how the domain is modelled (money, time, locale, naming).
+  - @docs/conventions/code.md — Ruby/Rails patterns, structure, testing.
+  - @docs/conventions/workflow.md — Git, PR, branch, release.
+  - `frontend-dependencies.md` — upgrading JS/CSS packages and their gem pairs
+    (loaded automatically when touching dependency manifests).
 - `docs/inbox.md` — raw thought capture. Do **not** act on entries here unless
   explicitly asked. They are unrefined and may be wrong.
 - `README.md` — public-facing overview; not normally needed during work.
@@ -39,6 +41,7 @@ reverse in 6 months?"_ If yes, decide now.
 
 `docs/CONTEXT.md` (domain glossary) and `docs/ops/` (runbooks) will appear when
 the project reaches the relevant milestones; they don't exist yet by design.
+Until `CONTEXT.md` exists, `domain.md` plus accepted ADRs are the domain-language source.
 
 ## How decisions get made here
 
@@ -50,11 +53,8 @@ the project reaches the relevant milestones; they don't exist yet by design.
 - A throwaway thought worth keeping → I'll add it to `docs/inbox.md` myself;
   don't act on it.
 
-## Agent skills
+## Claude Code setup
 
-Repo-specific guidance for agents lives in `docs/agents/`.
-
-- Issue tracker workflow: see `docs/agents/issue-tracker.md`
-- Reading order: see `docs/agents/reading-order.md`
-- Dual-agent entry points: see `docs/agents/agent-files.md`
-- Product discovery: see `docs/agents/product-discovery.md`
+- `.claude/rules/` — rules loaded automatically, always or when touching
+  matching files.
+- `.claude/skills/` — repo workflows (issues, PRs, commits, discovery sessions).

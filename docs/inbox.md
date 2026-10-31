@@ -13,7 +13,7 @@ Raw idea capture. Low-friction, chronological, deliberately unstructured.
   3. **Promote to ADR (Draft)** — surface a decision in the making.
   4. **Promote to a convention** — recognise it as a rule that applies repeatedly.
   5. **Promote to discovery session** — idea is too fuzzy for an Issue but worth
-     shaping; see `docs/agents/product-discovery.md`.
+     shaping; run the `story-mapping-facilitator` skill.
 - AI agents: do **not** act on entries here unless explicitly asked.
 
 ## Entries
