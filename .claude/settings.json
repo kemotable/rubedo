@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh issue view *)",
+      "Bash(gh issue list *)",
+      "Bash(gh pr view *)",
+      "Bash(gh pr list *)",
+      "Bash(gh pr diff *)",
+      "Bash(gh pr checks *)",
+      "Bash(gh repo view *)",
+      "Bash(gh label list *)",
+      "Bash(gh release list *)"
+    ],
+    "deny": [
+      "mcp__github"
+    ]
+  }
+}

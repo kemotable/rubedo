@@ -9,11 +9,11 @@ Use this skill to run a structured product-shaping session for Rubedo.
 
 Read before facilitating:
 
-1. `docs/agents/product-discovery.md` — phases, facilitation rules, method options, artifact structure, closing recommendation
-2. `AGENTS.md`
+1. [PRODUCT-DISCOVERY.md](./PRODUCT-DISCOVERY.md) — phases, facilitation rules, method options, artifact structure, closing recommendation
+2. `CLAUDE.md`
 3. `docs/conventions/workflow.md`
 
-Follow the phases and facilitation rules defined in `docs/agents/product-discovery.md` exactly.
+Follow the phases and facilitation rules defined in [PRODUCT-DISCOVERY.md](./PRODUCT-DISCOVERY.md) exactly.
 
 ## Session opener
 
