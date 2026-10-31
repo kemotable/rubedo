@@ -31,7 +31,7 @@ reverse in 6 months?"_ If yes, decide now.
   - @docs/conventions/code.md — Ruby/Rails patterns, structure, testing.
   - @docs/conventions/workflow.md — Git, PR, branch, release.
   - `frontend-dependencies.md` — upgrading JS/CSS packages and their gem pairs
-    (loaded automatically when touching dependency manifests).
+    (a rule pointing here loads when touching dependency manifests).
 - `docs/inbox.md` — raw thought capture. Do **not** act on entries here unless
   explicitly asked. They are unrefined and may be wrong.
 - `README.md` — public-facing overview; not normally needed during work.
