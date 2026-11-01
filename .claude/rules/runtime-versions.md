@@ -18,6 +18,7 @@ are repeated elsewhere and must move together, in the same commit:
 | Ruby     | `Dockerfile` (`RUBY_VERSION`), `.qlty/qlty.toml` (`[runtimes.enabled]`), `README.md` badge; minor also `.rubocop.yml` (`TargetRubyVersion`) |
 | Node     | `Dockerfile` (`NODE_VERSION`), `.qlty/qlty.toml` (`[runtimes.enabled]`), `README.md` badge                                                  |
 | Yarn     | `package.json` (`packageManager`), `Dockerfile` (`YARN_VERSION`)                                                                            |
+| Rails    | `Gemfile` (`~>` floor), `README.md` badge; minor also `config.load_defaults`, `lib/templates/**` (copied generator templates)               |
 | Bundler  | `Gemfile.lock` (`BUNDLED WITH`)                                                                                                             |
 | Postgres | `docker-compose.yml` (`image`), `Dockerfile` (`postgresql-client`), `README.md` badge, ADR-0003                                             |
 
