@@ -31,7 +31,6 @@ group :development, :test do
 end
 
 group :development do
-  gem "foreman"
   gem "haml_lint", require: false
   gem "pry"
   gem "pry-rails"

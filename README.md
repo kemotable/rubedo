@@ -22,17 +22,21 @@ Hotwire · Propshaft · HAML · Tailwind v4 · daisyUI v5 · ViewComponent
 
 ## Setup
 
-**Prerequisites:** [asdf](https://asdf-vm.com), [Docker](https://www.docker.com)
+**Prerequisites:** [asdf](https://asdf-vm.com), [Docker](https://www.docker.com),
+[overmind](https://github.com/DarthSim/overmind) >= 2.5 (`brew install overmind`,
+pulls in tmux)
 
 ```bash
 $ asdf install
-$ docker compose up -d
-$ bundle install
 $ corepack enable
-$ yarn install
-$ bin/rails db:setup
-$ bin/dev
+$ bin/setup
 ```
+
+`bin/setup` installs gems and JS packages, creates `.env` from `.env.example`,
+starts the Postgres container, prepares the database and runs `bin/dev`.
+Afterwards, `bin/dev` alone starts the app (database container included).
+Attach to a process with `overmind connect web` (or `js`, `css`), e.g. when
+stopped at a `debugger` call.
 
 ## License
 
