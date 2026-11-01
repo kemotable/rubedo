@@ -76,6 +76,8 @@ version = "2.15.1"
 
 [[plugin]]
 name = "haml-lint"
+package_file = "Gemfile"
+package_filters = ["haml_lint"]
 
 [[plugin]]
 name = "osv-scanner"
