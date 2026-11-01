@@ -60,6 +60,10 @@ mode = "comment"
 name = "default"
 default = true
 
+[runtimes.enabled]
+ruby = "3.4.9"
+node = "24.16.0"
+
 
 [[plugin]]
 name = "eslint"
