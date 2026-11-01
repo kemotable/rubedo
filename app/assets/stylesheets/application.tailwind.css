@@ -1,4 +1,11 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+
+/* Scan only templates and code that can emit class names, so words in
+   config or docs (e.g. :otp in filter_parameter_logging) do not add CSS. */
+@source "../../views";
+@source "../../components";
+@source "../../helpers";
+@source "../../javascript";
 
 @plugin "daisyui" {
   themes: abyss --default;
