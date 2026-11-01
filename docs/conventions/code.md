@@ -44,7 +44,7 @@ prevents a merge. CI (M2, #29) reports results.
 Individual linters, for quicker runs while working:
 
 - **Ruby** — RuboCop; `.rubocop.yml` is the authoritative config. Run `rubocop`.
-- **HAML** — haml_lint. Run `haml_lint app/views/`.
+- **HAML** — haml-lint. Run `bundle exec haml-lint app/views/`.
 - **JavaScript** — ESLint (`eslint.config.js`) for linting, Prettier
   (`.prettierrc`) for formatting. Run `yarn lint:js` to check and
   `yarn format:js` to format.
