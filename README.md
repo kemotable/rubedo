@@ -1,6 +1,6 @@
 # Rubedo
 
-![Ruby](https://img.shields.io/badge/ruby-3.4.9-CC342D?style=flat&logo=ruby&logoColor=white)
+![Ruby](https://img.shields.io/badge/ruby-3.4.12-CC342D?style=flat&logo=ruby&logoColor=white)
 ![Rails](https://img.shields.io/badge/rails-8.1.4-CC0000?style=flat&logo=rubyonrails&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/postgresql-18-4169E1?style=flat&logo=postgresql&logoColor=white)
 ![Node](https://img.shields.io/badge/node-24.16.0-339933?style=flat&logo=nodedotjs&logoColor=white)
