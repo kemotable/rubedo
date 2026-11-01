@@ -43,6 +43,7 @@ state and deployed state is unambiguous.
 - Do we want a `CHANGELOG.md` in the repo, or are GitHub Releases sufficient?
   Lean: GitHub Releases only, to avoid duplication. Confirm before Accepted.
 - Pre-release / RC tags policy — defer until first real need.
+- Revisit when deployment lands (M4); releases have no consumer before that.
 
 ## References
 

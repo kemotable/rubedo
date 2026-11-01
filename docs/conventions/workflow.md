@@ -54,8 +54,8 @@ To be defined once ADR-0004 moves beyond Draft.
 ## Tooling
 
 `gh` (GitHub CLI) is the standard tool for all GitHub operations — creating
-issues, fetching issue details, opening pull requests. No GitHub MCP tools are
-used.
+issues, fetching issue details, opening pull requests. GitHub MCP tools are not
+used; this is enforced by a deny rule in `.claude/settings.json`.
 
 ## Decisions that change these conventions
 

@@ -1,7 +1,8 @@
 # ADR-NNNN:
 
-- **Status**: Draft | Proposed | Accepted | Superseded by ADR-NNNN | Deferred
+- **Status**: Draft | Accepted | Superseded by ADR-NNNN | Deferred
 - **Date**: YYYY-MM-DD
+- **Decided**: YYYY-MM-DD (only when accepted later than drafted)
 - **Deciders**:
 
 ## Context
