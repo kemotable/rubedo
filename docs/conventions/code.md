@@ -43,6 +43,13 @@ Every variable has a safe default where it is read
 entry never breaks the app. A new variable is added to `.env.example` in the
 same change that starts reading it.
 
+`dotenv` loads `.env` in Rails' `before_configuration`, after
+`Bundler.require`. When a gem is configured through ENV, check its
+README/source for whether it reads ENV at require time (top-level code, not
+methods or initializers). If it does, move `dotenv` above it in the Gemfile
+with `require: "dotenv/load"`. Verify the value in the gem's own
+configuration, not in `ENV` — a safe default would hide the miss.
+
 ## Linting
 
 `qlty check` is the quality gate (`.qlty/qlty.toml`). It runs all linters
