@@ -8,13 +8,16 @@ gem "pg"
 gem "puma"
 
 gem "bootsnap", require: false
-gem "cssbundling-rails"
 gem "haml-rails"
-gem "jsbundling-rails"
 gem "propshaft"
+gem "view_component"
+
+# Rails half of an npm package: bump together with its package.json
+# counterpart (see docs/conventions/frontend-dependencies.md).
+gem "cssbundling-rails"
+gem "jsbundling-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
-gem "view_component"
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
