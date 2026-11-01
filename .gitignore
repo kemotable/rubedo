@@ -52,6 +52,9 @@ config/master.key
 .claude/settings.local.json
 .claude/worktrees/
 
+# Private working notes (see CLAUDE.md)
+/private/
+
 # macOS
 .DS_Store
 
