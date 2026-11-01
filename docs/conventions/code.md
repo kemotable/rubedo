@@ -31,6 +31,18 @@ Schema format is `schema.rb`. Switch to `structure.sql`
 `schema.rb` cannot represent — trigger, function, view, RLS policy — in the
 same PR that introduces it.
 
+## Environment variables
+
+Development and test settings come from `.env`, loaded by `dotenv` and read
+by `docker compose`. `.env` is git-ignored; `.env.example` is committed and
+copied to `.env` by `bin/dev` / `bin/setup` when it is missing. No secrets
+in either file — secrets go to Rails credentials.
+
+Every variable has a safe default where it is read
+(`ENV.fetch("DB_PORT", 5432)`, `${DB_PORT:-5432}`), so a missing `.env`
+entry never breaks the app. A new variable is added to `.env.example` in the
+same change that starts reading it.
+
 ## Linting
 
 `qlty check` is the quality gate (`.qlty/qlty.toml`). It runs all linters

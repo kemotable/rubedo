@@ -2,6 +2,9 @@
 
 source "https://rubygems.org"
 
+# Loads .env before other gems read ENV (keep at the top).
+gem "dotenv", groups: %i[development test]
+
 gem "rails", "~> 8.1.3"
 
 gem "pg"

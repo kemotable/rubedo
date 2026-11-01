@@ -8,9 +8,14 @@ services:
       POSTGRES_PASSWORD: rubedo
       POSTGRES_DB: rubedo_development
     ports:
-      - "5432:5432"
+      - "${DB_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rubedo -d rubedo_development"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
 
 volumes:
   postgres_data:
