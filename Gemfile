@@ -32,5 +32,4 @@ group :development do
   gem "haml_lint", require: false
   gem "pry"
   gem "pry-rails"
-  gem "web-console"
 end
