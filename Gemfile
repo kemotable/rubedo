@@ -2,9 +2,6 @@
 
 source "https://rubygems.org"
 
-# Loads .env before other gems read ENV (keep at the top).
-gem "dotenv", groups: %i[development test]
-
 gem "rails", "~> 8.1.3"
 
 gem "pg"
@@ -24,6 +21,7 @@ gem "turbo-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
+  gem "dotenv"
   gem "rubocop", require: false
   gem "rubocop-i18n", require: false
   gem "rubocop-performance", require: false
