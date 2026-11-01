@@ -26,6 +26,11 @@ Use `bin/rails generate model` / `migration` rather than writing
 copied from Rails 8.1 and warns when Rails is upgraded — merge upstream
 changes into it when that happens.
 
+Schema format is `schema.rb`. Switch to `structure.sql`
+(`config.active_record.schema_format = :sql`) with the first database object
+`schema.rb` cannot represent — trigger, function, view, RLS policy — in the
+same PR that introduces it.
+
 ## Linting
 
 `qlty check` is the quality gate (`.qlty/qlty.toml`). It runs all linters
