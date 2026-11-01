@@ -929,10 +929,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"daisyui@npm:~5.5.23":
-  version: 5.5.23
-  resolution: "daisyui@npm:5.5.23"
-  checksum: 10c0/df8faf9a9fd676a0facbc4f0255d66c5659c8559cdafd68da6bf29814528ccb19f7ccaf99400484ba5676ccfe026c4dff5716027ac9fda8416c32381a9351e1d
+"daisyui@npm:^5.7.50":
+  version: 5.7.50
+  resolution: "daisyui@npm:5.7.50"
+  checksum: 10c0/5c8f0466c34c8850acdd9671e4b1721f2187ef869d5735aa3270ac3309414f22d5295b86fc8f23237af1b394a664768f661bf5cf4c899d8fc9a13c6763bef7b5
   languageName: node
   linkType: hard
 
@@ -1792,7 +1792,7 @@ __metadata:
     "@hotwired/stimulus": "npm:^3.2.2"
     "@hotwired/turbo-rails": "npm:^8.0.23"
     "@tailwindcss/cli": "npm:^4.3.3"
-    daisyui: "npm:~5.5.23"
+    daisyui: "npm:^5.7.50"
     esbuild: "npm:^0.28.2"
     eslint: "npm:^10.13.0"
     eslint-config-prettier: "npm:^10.1.8"

@@ -6,7 +6,7 @@
     "@eslint/js": "^10.0.1",
     "@fontsource-variable/inter": "^5.2.8",
     "@tailwindcss/cli": "^4.3.3",
-    "daisyui": "~5.5.23",
+    "daisyui": "^5.7.50",
     "esbuild": "^0.28.2",
     "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
