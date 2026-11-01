@@ -94,7 +94,6 @@ version = "14.1.1"
 
 [[plugin]]
 name = "rubocop"
-version = "1.85.1"
 package_file = "Gemfile"
 package_filters = ["rubocop"]
 
