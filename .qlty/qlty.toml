@@ -62,7 +62,7 @@ default = true
 
 [runtimes.enabled]
 ruby = "4.0.9"
-node = "24.16.0"
+node = "24.22.2"
 
 
 [[plugin]]

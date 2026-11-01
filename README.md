@@ -3,7 +3,7 @@
 ![Ruby](https://img.shields.io/badge/ruby-4.0.9-CC342D?style=flat&logo=ruby&logoColor=white)
 ![Rails](https://img.shields.io/badge/rails-8.1.4-CC0000?style=flat&logo=rubyonrails&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/postgresql-18-4169E1?style=flat&logo=postgresql&logoColor=white)
-![Node](https://img.shields.io/badge/node-24.16.0-339933?style=flat&logo=nodedotjs&logoColor=white)
+![Node](https://img.shields.io/badge/node-24.22.2-339933?style=flat&logo=nodedotjs&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=flat)
 
 Personal finance application built as a long-term, portfolio-grade Rails project.
