@@ -25,9 +25,17 @@ them produces silent domain bugs, not style noise.
   application logic.
   - `config.time_zone = "UTC"`
   - `config.active_record.default_timezone = :utc`
-- Timezone conversion happens **only** at the presentation layer.
+- Timezone conversion of timestamps happens **only** at the presentation
+  layer. The one exception is deriving a domain date from the current
+  moment (see below).
 - Dates are domain-meaningful (e.g. "transaction date") and are stored as
   `DATE`, not as truncated timestamps.
+- A domain date that arrives as a date (bank statement booking date, user
+  input) is stored as given — never derived from a UTC timestamp.
+- When a domain date must be derived from the current moment ("today", the
+  current budget period, a form default), it is derived in the user's
+  timezone, currently fixed to `Europe/Warsaw`. Never use `Date.today` /
+  `Date.current` (UTC) for domain decisions.
 
 ## Locale
 
@@ -39,4 +47,4 @@ them produces silent domain bugs, not style noise.
 ## Naming
 
 This section will grow as domain decisions are made. The first real domain
-decisions land at M6. Until then, this section may stay short.
+decisions land at M3. Until then, this section may stay short.

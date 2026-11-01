@@ -24,8 +24,8 @@ reverse in 6 months?"_ If yes, decide now.
 ## Where things live
 
 - `docs/adr/` — architectural decisions. Read the ones touching the area you're
-  working in. Each ADR has a `Status` field (Draft / Proposed / Accepted /
-  Superseded / Deferred).
+  working in. Each ADR has a `Status` field (Draft / Accepted / Superseded /
+  Deferred).
 - `docs/conventions/` — rules that apply at every step of work.
   - @docs/conventions/domain.md — how the domain is modelled (money, time, locale, naming).
   - @docs/conventions/code.md — Ruby/Rails patterns, structure, testing.
@@ -37,7 +37,6 @@ reverse in 6 months?"_ If yes, decide now.
 - `README.md` — public-facing overview; not normally needed during work.
 - GitHub **Issues** — concrete tasks.
 - GitHub **Milestones** — roadmap and current scope.
-- GitHub **Releases** — version history / "what is done".
 
 `docs/CONTEXT.md` (domain glossary) and `docs/ops/` (runbooks) will appear when
 the project reaches the relevant milestones; they don't exist yet by design.

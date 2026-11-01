@@ -21,7 +21,7 @@ Copy WOFF2 files from the npm source package into `app/assets/fonts/`. Declare `
 ## Consequences
 
 - **Positive**: Font files are fingerprinted by Propshaft — correct cache-busting in production. No external runtime dependency. WOFF2 files are explicit in the git history.
-- **Negative / accepted costs**: Updating a font requires: `yarn upgrade <package>` → locate new WOFF2 in `node_modules` → `cp` to `app/assets/fonts/` → commit. Manual, but infrequent. A `bin/update-fonts` script could automate this (tracked in backlog).
+- **Negative / accepted costs**: Updating a font requires: `yarn upgrade <package>` → locate new WOFF2 in `node_modules` → `cp` to `app/assets/fonts/` → commit. Manual, but infrequent. A `bin/update-fonts` script could automate this (tracked in #42).
 - **Neutral**: ~173 KB of WOFF2 files tracked in the repository.
 
 ## References
