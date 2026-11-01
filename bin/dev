@@ -5,7 +5,7 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-for cmd in docker overmind tmux; do
+for cmd in docker overmind tmux yarn; do
   command -v "$cmd" >/dev/null 2>&1 ||
     { echo "bin/dev: '$cmd' not found, see README (Setup)." >&2; exit 1; }
 done
