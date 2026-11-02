@@ -16,12 +16,12 @@ are repeated elsewhere and must move together, in the same commit:
 | Version  | Also in                                                                                                                                     |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | Ruby     | `Dockerfile` (`RUBY_VERSION`), `.qlty/qlty.toml` (`[runtimes.enabled]`), `README.md` badge; minor also `.rubocop.yml` (`TargetRubyVersion`) |
-| Node     | `Dockerfile` (`NODE_VERSION`), `.qlty/qlty.toml` (`[runtimes.enabled]`), `README.md` badge                                                  |
-| Yarn     | `package.json` (`packageManager`), `Dockerfile` (`YARN_VERSION`)                                                                            |
+| Node     | `Dockerfile` (`NODE_VERSION`; `NODE_BUILD_VERSION` must know it), `.qlty/qlty.toml` (`[runtimes.enabled]`), `README.md` badge               |
+| Yarn     | `package.json` (`packageManager`, with hash — set via `corepack use yarn@X`)                                                                |
 | Corepack | `Dockerfile` (`COREPACK_VERSION`), `README.md` setup, `~/.default-npm-packages` (outside the repo)                                          |
 | Rails    | `Gemfile` (`~>` floor), `README.md` badge; minor also `config.load_defaults`, `lib/templates/**` (copied generator templates)               |
 | Bundler  | `Gemfile.lock` (`BUNDLED WITH`)                                                                                                             |
-| Postgres | `docker-compose.yml` (`image`), `Dockerfile` (`postgresql-client`), `README.md` badge, ADR-0003                                             |
+| Postgres | `docker-compose.yml` (`image`, exact minor), `Dockerfile` (`POSTGRES_MAJOR`), `README.md` badge, ADR-0003                                   |
 
 This list goes stale. On every bump, also search the whole repository for
 the old version string (e.g. `git grep -n "3\.4\.9"`, including comments and
