@@ -9,6 +9,7 @@ development:
   username: <%= ENV.fetch("DB_USERNAME", "rubedo") %>
   password: <%= ENV.fetch("DB_PASSWORD", "rubedo") %>
   host: <%= ENV.fetch("DB_HOST", "localhost") %>
+  port: <%= ENV.fetch("DB_PORT", 5432) %>
 
 test:
   <<: *default
@@ -16,6 +17,7 @@ test:
   username: <%= ENV.fetch("DB_USERNAME", "rubedo") %>
   password: <%= ENV.fetch("DB_PASSWORD", "rubedo") %>
   host: <%= ENV.fetch("DB_HOST", "localhost") %>
+  port: <%= ENV.fetch("DB_PORT", 5432) %>
 
 production:
   <<: *default

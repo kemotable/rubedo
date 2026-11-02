@@ -11,8 +11,6 @@
       "Bash(gh label list *)",
       "Bash(gh release list *)"
     ],
-    "deny": [
-      "mcp__github"
-    ]
+    "deny": ["mcp__github"]
   }
 }

@@ -1,3 +1,26 @@
-#!/usr/bin/env bash
-set -o errexit
-bundle exec foreman start -f Procfile.dev "$@"
+#!/usr/bin/env sh
+# Starts the database container and the Procfile.dev processes.
+# Attach to a process (e.g. for `debugger`): overmind connect web | js | css
+set -e
+
+cd "$(dirname "$0")/.."
+
+for cmd in docker overmind tmux yarn; do
+  command -v "$cmd" >/dev/null 2>&1 ||
+    { echo "bin/dev: '$cmd' not found, see README (Setup)." >&2; exit 1; }
+done
+
+if [ ! -f .env ]; then
+  cp .env.example .env
+  echo "bin/dev: created .env from .env.example"
+fi
+
+for key in $(sed -n 's/^\([A-Z_][A-Z0-9_]*\)=.*/\1/p' .env.example); do
+  grep -q "^$key=" .env ||
+    echo "bin/dev: warning: $key is in .env.example but missing in .env" >&2
+done
+
+docker compose up -d --wait
+docker compose ps
+
+exec overmind start -N -f Procfile.dev "$@"

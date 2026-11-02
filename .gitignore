@@ -52,6 +52,12 @@ config/master.key
 .claude/settings.local.json
 .claude/worktrees/
 
+# overmind (bin/dev) control socket
+.overmind.sock
+
+# Private working notes (see CLAUDE.md)
+/private/
+
 # macOS
 .DS_Store
 

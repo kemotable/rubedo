@@ -34,6 +34,9 @@ reverse in 6 months?"_ If yes, decide now.
     (a rule pointing here loads when touching dependency manifests).
 - `docs/inbox.md` — raw thought capture. Do **not** act on entries here unless
   explicitly asked. They are unrefined and may be wrong.
+- `private/` — git-ignored working notes (logs, baselines, agent output),
+  one folder per issue (e.g. `private/66-update-dependencies/`). Never
+  committed; not a source of truth for decisions.
 - `README.md` — public-facing overview; not normally needed during work.
 - GitHub **Issues** — concrete tasks.
 - GitHub **Milestones** — roadmap and current scope.

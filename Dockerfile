@@ -7,16 +7,24 @@
 
 # For a containerized dev environment, see Dev Containers: https://guides.rubyonrails.org/getting_started_with_devcontainer.html
 
-# Make sure RUBY_VERSION matches the Ruby version in .ruby-version
-ARG RUBY_VERSION=3.4.9
+# Keep versions in sync with .tool-versions (see .claude/rules/runtime-versions.md)
+ARG RUBY_VERSION=4.0.9
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
 # Rails app lives here
 WORKDIR /rails
 
-# Install base packages
+# Install base packages; postgresql-client comes from the PostgreSQL apt repo
+# so its major matches the server (Debian ships an older one).
+ARG POSTGRES_MAJOR=18
+ADD --chmod=644 --checksum=sha256:0144068502a1eddd2a0280ede10ef607d1ec592ce819940991203941564e8e76 \
+    https://www.postgresql.org/media/keys/ACCC4CF8.asc /etc/apt/keyrings/postgresql.asc
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 postgresql-client && \
+    apt-get install --no-install-recommends -y ca-certificates curl libjemalloc2 && \
+    . /etc/os-release && \
+    echo "deb [signed-by=/etc/apt/keyrings/postgresql.asc] https://apt.postgresql.org/pub/repos/apt ${VERSION_CODENAME}-pgdg main" > /etc/apt/sources.list.d/pgdg.list && \
+    apt-get update -qq && \
+    apt-get install --no-install-recommends -y "postgresql-client-${POSTGRES_MAJOR}" && \
     ln -s "/usr/lib/$(uname -m)-linux-gnu/libjemalloc.so.2" /usr/local/lib/libjemalloc.so && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
@@ -46,14 +54,18 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 # Install JavaScript dependencies
-ARG NODE_VERSION=24.16.0
-ARG YARN_VERSION=latest
-ENV PATH=/usr/local/node/bin:$PATH
-RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
-    /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
-    rm -rf /tmp/node-build-master && \
-    corepack enable && \
-    yarn set version "$YARN_VERSION"
+# Yarn itself comes from "packageManager" in package.json (version + hash).
+ARG NODE_VERSION=26.13.0
+ARG NODE_BUILD_VERSION=5.4.62
+# Node 25+ no longer ships Corepack; install a pinned version.
+ARG COREPACK_VERSION=0.36.0
+ENV PATH=/usr/local/node/bin:$PATH \
+    COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+RUN curl -fsSL "https://github.com/nodenv/node-build/archive/refs/tags/v${NODE_BUILD_VERSION}.tar.gz" | tar xz -C /tmp/ && \
+    "/tmp/node-build-${NODE_BUILD_VERSION}/bin/node-build" "${NODE_VERSION}" /usr/local/node && \
+    rm -rf "/tmp/node-build-${NODE_BUILD_VERSION}" && \
+    npm install -g "corepack@${COREPACK_VERSION}" && \
+    corepack enable
 
 # Install application gems
 COPY vendor/* ./vendor/
@@ -65,7 +77,7 @@ RUN bundle install && \
     bundle exec bootsnap precompile -j 1 --gemfile
 
 # Install node modules
-COPY package.json yarn.lock ./
+COPY package.json yarn.lock .yarnrc.yml ./
 RUN yarn install --immutable
 
 # Copy application code

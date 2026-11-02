@@ -26,6 +26,30 @@ Use `bin/rails generate model` / `migration` rather than writing
 copied from Rails 8.1 and warns when Rails is upgraded — merge upstream
 changes into it when that happens.
 
+Schema format is `schema.rb`. Switch to `structure.sql`
+(`config.active_record.schema_format = :sql`) with the first database object
+`schema.rb` cannot represent — trigger, function, view, RLS policy — in the
+same PR that introduces it.
+
+## Environment variables
+
+Development and test settings come from `.env`, loaded by `dotenv` and read
+by `docker compose`. `.env` is git-ignored; `.env.example` is committed and
+copied to `.env` by `bin/dev` / `bin/setup` when it is missing. No secrets
+in either file — secrets go to Rails credentials.
+
+Every variable has a safe default where it is read
+(`ENV.fetch("DB_PORT", 5432)`, `${DB_PORT:-5432}`), so a missing `.env`
+entry never breaks the app. A new variable is added to `.env.example` in the
+same change that starts reading it.
+
+`dotenv` loads `.env` in Rails' `before_configuration`, after
+`Bundler.require`. When a gem is configured through ENV, check its
+README/source for whether it reads ENV at require time (top-level code, not
+methods or initializers). If it does, move `dotenv` above it in the Gemfile
+with `require: "dotenv/load"`. Verify the value in the gem's own
+configuration, not in `ENV` — a safe default would hide the miss.
+
 ## Linting
 
 `qlty check` is the quality gate (`.qlty/qlty.toml`). It runs all linters
@@ -44,7 +68,7 @@ prevents a merge. CI (M2, #29) reports results.
 Individual linters, for quicker runs while working:
 
 - **Ruby** — RuboCop; `.rubocop.yml` is the authoritative config. Run `rubocop`.
-- **HAML** — haml_lint. Run `haml_lint app/views/`.
+- **HAML** — haml-lint. Run `bundle exec haml-lint app/views/`.
 - **JavaScript** — ESLint (`eslint.config.js`) for linting, Prettier
   (`.prettierrc`) for formatting. Run `yarn lint:js` to check and
   `yarn format:js` to format.
